@@ -1,18 +1,32 @@
 #include "main.h"
-#include <stdio.h>
+#define NULL 0
 
 /**
- * main - check the code
- *
- * Return: Always 0.
+ * _strpbrk - return pointer to byte in s that matches a byte in accept
+ * @s: string to search
+ * @accept: target matches
+ * Return: pointer to index of string at first occurence
  */
-int main(void)
-{
-	char *s = "hello, world";
-	char *f = "world";
-	char *t;
 
-	t = _strpbrk(s, f);
-	printf("%s\n", t);
-	return (0);
+char *_strpbrk(char *s, char *accept)
+{
+	int x = 0, y;
+
+	while (s[x] != '\0')
+	{
+		for (y = 0; accept[y] != '\0'; y++)
+		{
+			if (s[x] == accept[y])
+			{
+				s = &s[x];
+				return (s);
+			}
+
+		}
+
+	x++;
+	}
+
+	return (NULL);
+
 }
